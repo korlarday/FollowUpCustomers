@@ -173,6 +173,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910151526150_InitialMigrations.cs" />
+    <Compile Include="Migrations\201910151526150_InitialMigrations.Designer.cs">
+      <DependentUpon>201910151526150_InitialMigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -184,12 +189,77 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Custom\css\cs-skin-elastic.css" />
+    <Content Include="Content\Custom\css\lib\chosen\chosen-sprite%402x.png" />
+    <Content Include="Content\Custom\css\lib\chosen\chosen-sprite.png" />
+    <Content Include="Content\Custom\css\lib\chosen\chosen.css" />
+    <Content Include="Content\Custom\css\lib\chosen\chosen.min.css" />
+    <Content Include="Content\Custom\css\lib\datatable\buttons.bootstrap.min.css" />
+    <Content Include="Content\Custom\css\lib\datatable\buttons.dataTables.min.css" />
+    <Content Include="Content\Custom\css\lib\datatable\dataTables.bootstrap.min.css" />
+    <Content Include="Content\Custom\css\lib\vector-map\jqvmap.min.css" />
+    <Content Include="Content\Custom\css\style.css" />
+    <Content Include="Content\Custom\fonts\icomoon\icomoon.svg" />
+    <Content Include="Content\Custom\fonts\icomoon\index.html" />
+    <Content Include="images\.gitignore" />
+    <Content Include="images\admin.jpg" />
+    <Content Include="images\avatar\1.jpg" />
+    <Content Include="images\avatar\2.jpg" />
+    <Content Include="images\avatar\3.jpg" />
+    <Content Include="images\avatar\4.jpg" />
+    <Content Include="images\avatar\5.jpg" />
+    <Content Include="images\avatar\6.jpg" />
+    <Content Include="images\avatar\64-1.jpg" />
+    <Content Include="images\avatar\64-2.jpg" />
+    <Content Include="images\favicon.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo2.png" />
+    <Content Include="Content\Custom\js\dashboard.js" />
+    <Content Include="Content\Custom\js\init\chartjs-init.js" />
+    <Content Include="Content\Custom\js\init\datatables-init.js" />
+    <Content Include="Content\Custom\js\init\flot-chart-init.js" />
+    <Content Include="Content\Custom\js\init\fullcalendar-init.js" />
+    <Content Include="Content\Custom\js\init\gmap-init.js" />
+    <Content Include="Content\Custom\js\init\peitychart-init.js" />
+    <Content Include="Content\Custom\js\init\vector-init.js" />
+    <Content Include="Content\Custom\js\init\weather-init.js" />
+    <Content Include="Content\Custom\js\lib\chosen\chosen.jquery.js" />
+    <Content Include="Content\Custom\js\lib\chosen\chosen.jquery.min.js" />
+    <Content Include="Content\Custom\js\lib\chosen\chosen.proto.js" />
+    <Content Include="Content\Custom\js\lib\chosen\chosen.proto.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\buttons.bootstrap.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\buttons.colVis.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\buttons.flash.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\buttons.html5.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\buttons.print.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\dataTables.bootstrap.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\dataTables.buttons.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\datatables.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\jquery-1.12.4.js" />
+    <Content Include="Content\Custom\js\lib\data-table\jquery.dataTables.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\jszip.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\pdfmake.min.js" />
+    <Content Include="Content\Custom\js\lib\data-table\vfs_fonts.js" />
+    <Content Include="Content\Custom\js\lib\gmap\gmapApi.js" />
+    <Content Include="Content\Custom\js\lib\gmap\gmaps.js" />
+    <Content Include="Content\Custom\js\lib\gmap\gmaps.min.js" />
+    <Content Include="Content\Custom\js\main.js" />
+    <Content Include="Content\Custom\js\vmap.sampledata.js" />
+    <Content Include="Content\Custom\js\widgets.js" />
+    <Content Include="Content\Custom\scss\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Custom\css\style.css.map" />
+    <Content Include="Content\Custom\fonts\icomoon\icomoon.eot" />
+    <Content Include="Content\Custom\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Content\Custom\fonts\icomoon\icomoon.woff" />
+    <Content Include="Content\Custom\scss\style.css.map" />
+    <Content Include="Content\Custom\scss\style.scss" />
+    <Content Include="images\logo.psd" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -235,6 +305,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\HeaderPartial.cshtml" />
+    <Content Include="Views\Shared\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Shared\FooterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -251,6 +324,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910151526150_InitialMigrations.resx">
+      <DependentUpon>201910151526150_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

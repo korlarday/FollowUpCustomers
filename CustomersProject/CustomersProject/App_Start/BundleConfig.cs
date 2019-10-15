@@ -19,12 +19,12 @@ namespace CustomersProject
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                      "~/Content/Custom/js/main.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Custom/css/cs-skin-elastic.css",
+                      "~/Content/Custom/css/style.css"));
         }
     }
 }
