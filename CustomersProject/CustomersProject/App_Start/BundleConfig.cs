@@ -24,7 +24,8 @@ namespace CustomersProject
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/Custom/css/cs-skin-elastic.css",
-                      "~/Content/Custom/css/style.css"));
+                      "~/Content/Custom/css/style.css",
+                      "~/Content/Site.css"));
         }
     }
 }

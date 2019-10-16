@@ -27,7 +27,8 @@ namespace CustomersProject.Migrations
                 var user = new ApplicationUser
                 {
                     UserName = "admin@ieianchorpensions.com",
-                    Email = "admin@ieianchorpensions.com"
+                    Email = "admin@ieianchorpensions.com",
+                    Name = "Admin Admin"
                 };
                 userManager.Create(user, "Abcde1234*");
 

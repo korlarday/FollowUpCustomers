@@ -23,10 +23,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @RenderSection("styles", required: false)
 </head>
 <body>
     <!-- Left Panel -->
@@ -58,5 +58,4 @@
     @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
 </body>
-                @*@Html.Partial("_LoginPartial")*@
 </html>

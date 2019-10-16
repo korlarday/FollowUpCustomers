@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CustomersProject.Models;
+using CustomersProject.Models.ViewModel;
 
 namespace CustomersProject.Controllers
 {
@@ -251,7 +252,7 @@ namespace CustomersProject.Controllers
             var user = await UserManager.FindByNameAsync(model.Email);
             if (user == null)
             {
-                // Don't reveal that the user does not exist
+                // Don't reveal that the user does not exist 
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
@@ -401,6 +402,35 @@ namespace CustomersProject.Controllers
         public ActionResult ExternalLoginFailure()
         {
             return View();
+        }
+
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(ChangePasswordVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var userName = User.Identity.GetUserName();
+
+            var user = UserManager.Find(userName, model.OldPassword);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Password is incorrect");
+                return View(model);
+            }
+
+            UserManager.RemovePassword(user.Id);
+            UserManager.AddPassword(user.Id, model.NewPassword);
+
+            return RedirectToAction("index", "home");
         }
 
         protected override void Dispose(bool disposing)
