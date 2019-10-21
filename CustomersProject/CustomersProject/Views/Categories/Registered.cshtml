@@ -1,6 +1,8 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Registered";
 }
+
 
 @section styles{
     <link href="~/Content/Custom/toastr.css" rel="stylesheet" />
@@ -12,7 +14,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Customers</h1>
+                        <h1>Fully Registered Customers</h1>
                     </div>
                 </div>
             </div>
@@ -20,8 +22,8 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Home</a></li>
-                            <li class="active">Index</li>
+                            <li><a href="#">Registerd Customers</a></li>
+                            <li class="active">New</li>
                         </ol>
                     </div>
                 </div>
@@ -35,7 +37,7 @@
         <div class="row">
             <div class="col-md-12 card">
                 <div class="card-header">
-                    <strong class="card-title">Customers</strong>
+                    <strong class="card-title">New Customers</strong>
                 </div>
                 <div class="text-center" id="loader">
                     <img src="~/images/loader.gif" />
@@ -95,7 +97,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+                <h5 class="modal-title" id="mediumModalLabel">Customer Details</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -171,7 +173,7 @@
 
             $.ajax({
                 method: 'GET',
-                url: 'http://127.0.0.1:8000/api/api_customers',
+                url: 'http://127.0.0.1:8000/api/api_customers_registered',
                 success: function (data) {
                     console.log(data);
                     var $data = data.data;
@@ -259,13 +261,18 @@
                 $(".clone-tr:not(':first')").remove();
 
                 var $pageUrl = $this.find('button').attr('data-link');
-                var $url = "http://127.0.0.1:8000/api/api_customers" + $pageUrl;
+                var $url = "http://127.0.0.1:8000/api/api_customers_registered" + $pageUrl;
                 $.ajax({
                     method: 'GET',
                     url: $url,
                     success: function (data) {
                         console.log(data);
                         var $data = data.data;
+                        if ($data.length === 0) {
+                            $("#pagination").hide();
+                            $("#table").hide();
+                            $("#no-record").show();
+                        }
                         var $body = $(".customer-body");
                         var $from = data.from;
                         for (var i = 0; i < $data.length; i++) {
@@ -355,7 +362,7 @@
                 var $statusCode = parseInt($selectedValue);
                 var $url = 'http://127.0.0.1:8000/api/api_customers/' + $id;
 
-                
+
                 $.ajax({
                     url: $url,
                     method: 'POST',
@@ -393,4 +400,3 @@
         });
     </script>
 }
-

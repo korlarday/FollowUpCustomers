@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -220,6 +221,7 @@
     <Content Include="images\avatar\64-1.jpg" />
     <Content Include="images\avatar\64-2.jpg" />
     <Content Include="images\favicon.png" />
+    <Content Include="images\loader.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo2.png" />
     <Content Include="Content\Custom\js\dashboard.js" />
@@ -320,6 +322,9 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Categories\New.cshtml" />
+    <Content Include="Views\Categories\Pending.cshtml" />
+    <Content Include="Views\Categories\Registered.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

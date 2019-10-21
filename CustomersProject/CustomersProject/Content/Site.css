@@ -5,3 +5,14 @@
 .js-users tr:hover .js-delete{
     display: inline;
 }
+
+
+/*Overriding bootstrap conventions*/
+.page-item.active .page-link {
+    background-color: #00c292;
+    border-color: #00c292;
+}
+
+.modal-body .table th, .modal-body .table td{
+    border-top: 0;
+}
