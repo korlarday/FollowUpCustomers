@@ -221,6 +221,7 @@
     <Content Include="images\avatar\64-1.jpg" />
     <Content Include="images\avatar\64-2.jpg" />
     <Content Include="images\favicon.png" />
+    <Content Include="images\footer-logo.png" />
     <Content Include="images\loader.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo2.png" />
@@ -281,6 +282,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -325,6 +327,7 @@
     <Content Include="Views\Categories\New.cshtml" />
     <Content Include="Views\Categories\Pending.cshtml" />
     <Content Include="Views\Categories\Registered.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

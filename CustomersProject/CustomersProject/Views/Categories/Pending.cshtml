@@ -167,6 +167,7 @@
 @section Scripts{
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/moment.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -190,17 +191,20 @@
                         $cloneTr.removeClass().addClass('clone-tr');
                         $cloneTr.addClass('js-' + $data[i].id);
 
+                        $dob = moment($data[i].dob, 'YYYY-MM-DD HH:mm:ss').format('MMMM Do YYYY');
+                        $creationTime = moment($data[i].created_at, 'YYYY-MM-DD HH:mm:ss').format('lll');
+
                         $cloneTr.find('.serial').text($from++ + '.');
                         $cloneTr.find('.js-name').text($data[i].fname + ' ' + $data[i].lname);
                         $cloneTr.find('.js-email').text($data[i].email);
                         $cloneTr.find('.js-phone').text($data[i].phone);
                         $cloneTr.find('.js-state').text($data[i].states);
-                        $cloneTr.find('.js-dob').text($data[i].dob);
+                        $cloneTr.find('.js-dob').text($dob);
                         $cloneTr.find('.js-employer').text($data[i].employer);
                         $cloneTr.find('.js-employer-address').text($data[i].employer_address);
                         $cloneTr.find('.js-status').text($data[i].status);
                         $cloneTr.find('.js-id').text($data[i].id);
-                        $cloneTr.find('.js-created-at').text($data[i].created_at);
+                        $cloneTr.find('.js-created-at').text($creationTime);
 
                         // For Badge state
                         if ($data[i].status === 1) {
@@ -281,17 +285,20 @@
                             $cloneTr.removeClass().addClass('clone-tr');
                             $cloneTr.addClass('js-' + $data[i].id);
 
+                            $dob = moment($data[i].dob, 'YYYY-MM-DD HH:mm:ss').format('MMMM Do YYYY');
+                            $creationTime = moment($data[i].created_at, 'YYYY-MM-DD HH:mm:ss').format('lll');
+
                             $cloneTr.find('.serial').text($from++ + '.');
                             $cloneTr.find('.js-name').text($data[i].fname + ' ' + $data[i].lname);
                             $cloneTr.find('.js-email').text($data[i].email);
                             $cloneTr.find('.js-phone').text($data[i].phone);
                             $cloneTr.find('.js-state').text($data[i].states);
-                            $cloneTr.find('.js-dob').text($data[i].dob);
+                            $cloneTr.find('.js-dob').text($dob);
                             $cloneTr.find('.js-employer').text($data[i].employer);
                             $cloneTr.find('.js-employer-address').text($data[i].employer_address);
                             $cloneTr.find('.js-status').text($data[i].status);
                             $cloneTr.find('.js-id').text($data[i].id);
-                            $cloneTr.find('.js-created-at').text($data[i].created_at);
+                            $cloneTr.find('.js-created-at').text($creationTime);
 
                             // For Badge state
                             if ($data[i].status === 1) {

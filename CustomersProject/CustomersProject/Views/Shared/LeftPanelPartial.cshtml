@@ -11,10 +11,14 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th-large"></i>Categories</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-puzzle-piece"></i><a href="/Categories/new">New Customers</a></li>
-                        <li><i class="fa fa-id-badge"></i><a href="/Categories/pending">Pending</a></li>
-                        <li><i class="fa fa-bars"></i><a href="/Categories/registered">Fully Registered</a></li>
+                        <li><i class="menu-icon ti-announcement"></i><a href="/Categories/new">New Customers</a></li>
+                        <li><i class="menu-icon ti-hand-stop"></i><a href="/Categories/pending">Pending</a></li>
+                        <li><i class="menu-icon ti-check"></i><a href="/Categories/registered">Fully Registered</a></li>
                     </ul>
+                </li>
+
+                <li>
+                    <a href="/home/search"> <i class="menu-icon ti-search"></i>Search </a>
                 </li>
 
                 @if (User.IsInRole("CanManageUsers"))
