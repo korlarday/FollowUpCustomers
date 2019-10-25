@@ -1,10 +1,13 @@
-﻿@{
+﻿@using CustomersProject.Models
+@model UserStateVM
+@{
     ViewBag.Title = "Home Page";
 }
 
 @section styles{
     <link href="~/Content/Custom/toastr.css" rel="stylesheet" />
 }
+
 
 <div class="breadcrumbs">
     <div class="breadcrumbs-inner">
@@ -29,6 +32,9 @@
         </div>
     </div>
 </div>
+
+<span style="display:none" id="userState">@Model.State</span>
+<span style="display:none" id="userDept">@Model.Department</span>
 
 <div class="content">
     <div class="animated fadeIn">
@@ -103,6 +109,8 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
+                        <img src="" id="customerImage" style="max-width: 150px;max-height: 170px" />
+                        <img src="~/images/user.png" id="defaultImage" style="max-width: 150px;max-height: 170px" />
                         <div>
                             <table class="table table-sm">
                                 <tbody>
@@ -147,6 +155,7 @@
                                     <option value="1" id="new">New</option>
                                     <option value="2" id="pending">Pending</option>
                                     <option value="3" id="registered">Fully Registered</option>
+                                    <option value="4" id="unresolved">Unresolved</option>
                                 </select>
                             </div>
                         </div>
@@ -169,10 +178,27 @@
     <script>
         $(document).ready(function () {
 
+            function filterText(text) {
+                if(text !== null)
+                    return text.replace('<p>', '').replace('</p>', '');
+            }
+
+            var $userState = $("#userState").text();
+            var $userDept = $("#userDept").text();
+
+            var $isFullAccess = '';
+
+            if ($userDept === 'CS')
+                $isFullAccess = 'yes';
+            else
+                $isFullAccess = 'no';
+
             $.ajax({
                 method: 'GET',
                 url: 'http://127.0.0.1:8000/api/api_customers',
+                data: { state: $userState, isFullAccess: $isFullAccess },
                 success: function (data) {
+                    console.log($userState + ' ' + $userDept + ' inside ajax');
                     console.log(data);
                     var $data = data.data;
                     var $body = $(".customer-body");
@@ -192,16 +218,21 @@
                         $cloneTr.addClass('js-' + $data[i].id);
 
                         $cloneTr.find('.serial').text($from++ + '.');
-                        $cloneTr.find('.js-name').text($data[i].fname + ' ' + $data[i].lname);
+                        $cloneTr.find('.js-name').text(filterText($data[i].fname) + ' ' + filterText($data[i].lname) + ' ' + filterText($data[i].oname));
                         $cloneTr.find('.js-email').text($data[i].email);
-                        $cloneTr.find('.js-phone').text($data[i].phone);
+                        $cloneTr.find('.js-phone').text(filterText($data[i].phone));
                         $cloneTr.find('.js-state').text($data[i].states);
                         $cloneTr.find('.js-dob').text($dob);
-                        $cloneTr.find('.js-employer').text($data[i].employer);
-                        $cloneTr.find('.js-employer-address').text($data[i].employer_address);
+                        $cloneTr.find('.js-employer').text(filterText($data[i].employer));
+                        $cloneTr.find('.js-employer-address').text(filterText($data[i].employer_address));
                         $cloneTr.find('.js-status').text($data[i].status);
                         $cloneTr.find('.js-id').text($data[i].id);
                         $cloneTr.find('.js-created-at').text($creationTime);
+
+
+                        //​$(".text_div").text(function () {
+                        //    return $(this).text().replace("contains", "hello everyone"); 
+                        //});
 
                         // For Badge state
                         if ($data[i].status === 1) {
@@ -214,6 +245,11 @@
                                 .removeClass()
                                 .addClass('badge js-badge badge-pending')
                                 .text('Pending');
+                        } else if ($data[i].status === 4) {
+                            $cloneTr.find('.js-badge')
+                                .removeClass()
+                                .addClass('badge js-badge badge-secondary')
+                                .text('Unresolved');
                         } else {
                             $cloneTr.find('.js-badge')
                                 .removeClass()
@@ -266,6 +302,7 @@
                 $.ajax({
                     method: 'GET',
                     url: $url,
+                    data: { state: $userState, isFullAccess: $isFullAccess },
                     success: function (data) {
                         console.log(data);
                         var $data = data.data;
@@ -281,13 +318,13 @@
                             $creationTime = moment($data[i].created_at, 'YYYY-MM-DD HH:mm:ss').format('lll');
 
                             $cloneTr.find('.serial').text($from++ + '.');
-                            $cloneTr.find('.js-name').text($data[i].fname + ' ' + $data[i].lname);
+                            $cloneTr.find('.js-name').text(filterText($data[i].fname) + ' ' + filterText($data[i].lname) + ' ' + filterText($data[i].oname));
                             $cloneTr.find('.js-email').text($data[i].email);
-                            $cloneTr.find('.js-phone').text($data[i].phone);
+                            $cloneTr.find('.js-phone').text(filterText($data[i].phone));
                             $cloneTr.find('.js-state').text($data[i].states);
                             $cloneTr.find('.js-dob').text($dob);
-                            $cloneTr.find('.js-employer').text($data[i].employer);
-                            $cloneTr.find('.js-employer-address').text($data[i].employer_address);
+                            $cloneTr.find('.js-employer').text(filterText($data[i].employer));
+                            $cloneTr.find('.js-employer-address').text(filterText($data[i].employer_address));
                             $cloneTr.find('.js-status').text($data[i].status);
                             $cloneTr.find('.js-id').text($data[i].id);
                             $cloneTr.find('.js-created-at').text($creationTime);
@@ -303,6 +340,11 @@
                                     .removeClass()
                                     .addClass('badge js-badge badge-pending')
                                     .text('Pending');
+                            } else if ($data[i].status === 4) {
+                                $cloneTr.find('.js-badge')
+                                    .removeClass()
+                                    .addClass('badge js-badge badge-secondary')
+                                    .text('Unresolved');
                             } else {
                                 $cloneTr.find('.js-badge')
                                     .removeClass()
@@ -327,6 +369,7 @@
                 e.preventDefault();
                 var $this = $(this);
 
+
                 var $name = $this.parent().parent().find('.js-name').text();
                 var $email = $this.parent().parent().find('.js-email').text();
                 var $phone = $this.parent().parent().find('.js-phone').text();
@@ -337,6 +380,26 @@
                 var $status = $this.parent().parent().find('.js-status').text();
                 var $id = $this.parent().parent().find('.js-id').text();
                 var $createdAt = $this.parent().parent().find('.js-created-at').text();
+
+                // fetch the image url
+                $.ajax({
+                    url: 'http://127.0.0.1:8000/api/api_customers_getimage/' + $id,
+                    method: 'GET',
+                    success: function (data) {
+                        if (data.length === 0) {
+                            $("#defaultImage").show();
+                            $("#customerImage").hide();
+                        } else {
+                            var imageSrc = 'http://127.0.0.1:8000' + data;
+                            $("#customerImage").attr('src', imageSrc);
+                            $("#defaultImage").hide();
+                            $("#customerImage").show();
+                        }
+                    },
+                    error: function () {
+                        toastr.error("Unexpected error! Unable to get image at this time");
+                    }
+                })
 
                 $("#js-name").text($name);
                 $("#js-email").text($email);
@@ -382,6 +445,11 @@
                                 .removeClass()
                                 .addClass('badge js-badge badge-pending')
                                 .text('Pending');
+                        } else if ($statusCode === 4) {
+                            $tr.find('.js-badge')
+                                .removeClass()
+                                .addClass('badge js-badge badge-secondary')
+                                .text('Unresolved');
                         } else {
                             $tr.find('.js-badge')
                                 .removeClass()

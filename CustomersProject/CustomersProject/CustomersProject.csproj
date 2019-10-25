@@ -183,11 +183,17 @@
     <Compile Include="Migrations\201910160920444_AddingNameFieldToApplicationUser.Designer.cs">
       <DependentUpon>201910160920444_AddingNameFieldToApplicationUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910221550019_AddingDepartmentandStateFieldToUser.cs" />
+    <Compile Include="Migrations\201910221550019_AddingDepartmentandStateFieldToUser.Designer.cs">
+      <DependentUpon>201910221550019_AddingDepartmentandStateFieldToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\StateData.cs" />
+    <Compile Include="Models\UserStateVM.cs" />
     <Compile Include="Models\ViewModel\ChangePasswordVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -212,19 +218,10 @@
     <Content Include="Content\Custom\toastr.css" />
     <Content Include="images\.gitignore" />
     <Content Include="images\admin.jpg" />
-    <Content Include="images\avatar\1.jpg" />
-    <Content Include="images\avatar\2.jpg" />
-    <Content Include="images\avatar\3.jpg" />
-    <Content Include="images\avatar\4.jpg" />
-    <Content Include="images\avatar\5.jpg" />
-    <Content Include="images\avatar\6.jpg" />
-    <Content Include="images\avatar\64-1.jpg" />
-    <Content Include="images\avatar\64-2.jpg" />
     <Content Include="images\favicon.png" />
     <Content Include="images\footer-logo.png" />
     <Content Include="images\loader.gif" />
     <Content Include="images\logo.png" />
-    <Content Include="images\logo2.png" />
     <Content Include="Content\Custom\js\dashboard.js" />
     <Content Include="Content\Custom\js\init\chartjs-init.js" />
     <Content Include="Content\Custom\js\init\datatables-init.js" />
@@ -262,6 +259,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\registered.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Custom\css\style.css.map" />
@@ -271,6 +269,7 @@
     <Content Include="Content\Custom\scss\style.css.map" />
     <Content Include="Content\Custom\scss\style.scss" />
     <Content Include="images\logo.psd" />
+    <Content Include="Content\States.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -322,12 +321,12 @@
     <Content Include="Views\Shared\LeftPanelPartial.cshtml" />
     <Content Include="Views\Shared\FooterPartial.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Categories\New.cshtml" />
     <Content Include="Views\Categories\Pending.cshtml" />
     <Content Include="Views\Categories\Registered.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Categories\Unresolved.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -351,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910160920444_AddingNameFieldToApplicationUser.resx">
       <DependentUpon>201910160920444_AddingNameFieldToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910221550019_AddingDepartmentandStateFieldToUser.resx">
+      <DependentUpon>201910221550019_AddingDepartmentandStateFieldToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,6 +10,8 @@ namespace CustomersProject.Models
     public class ApplicationUser : IdentityUser
     {
         public string Name { get; set; }
+        public string Department { get; set; }
+        public string State { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -18,7 +20,7 @@ namespace CustomersProject.Models
             return userIdentity;
         }
     }
-
+    
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()

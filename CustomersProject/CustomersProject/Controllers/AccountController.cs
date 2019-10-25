@@ -10,6 +10,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CustomersProject.Models;
 using CustomersProject.Models.ViewModel;
+using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace CustomersProject.Controllers
 {
@@ -58,6 +61,11 @@ namespace CustomersProject.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            // Confirm user is not logged in
+            string username = User.Identity.Name;
+            if (!string.IsNullOrEmpty(username))
+                return RedirectToAction("Index", "Home");
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -140,7 +148,17 @@ namespace CustomersProject.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            // Confirm user is not logged in
+            string username = User.Identity.Name;
+            if (!string.IsNullOrEmpty(username))
+                return RedirectToAction("Index", "Home");
+
+            RegisterViewModel model = new RegisterViewModel();
+            model.DepartmentList = new List<string>();
+            model.DepartmentList.Add("Customer Service");
+            model.DepartmentList.Add("Business Development & Strategy");
+            
+            return View(model);
         }
 
         //
@@ -152,7 +170,13 @@ namespace CustomersProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { 
+                    UserName = model.Email, 
+                    Email = model.Email,
+                    Department = model.Department,
+                    Name = model.Name,
+                    State = model.State
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -431,6 +455,18 @@ namespace CustomersProject.Controllers
             UserManager.AddPassword(user.Id, model.NewPassword);
 
             return RedirectToAction("index", "home");
+        }
+
+
+        [AllowAnonymous]
+        public JsonResult FetchStates()
+        {
+            List<StateData> states = new List<StateData>();
+            using(StreamReader sr = new StreamReader(Server.MapPath("~/Content/States.json")))
+            {
+                states = JsonConvert.DeserializeObject<List<StateData>>(sr.ReadToEnd());
+            }
+            return this.Json(states, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

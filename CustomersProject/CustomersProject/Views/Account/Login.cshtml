@@ -35,8 +35,13 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body{
+            background-color: mintcream !important;
+        }
+    </style>
 </head>
-<body class="bg-dark">
+<body class="">
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
@@ -46,7 +51,8 @@
                         <img class="align-content" src="@Url.Content("~/images/logo.png")" alt="">
                     </a>
                 </div>
-                <div class="login-form" style="padding-bottom: 43px;padding-top: 35px">
+                <div class="login-form" style="padding-bottom: 43px;padding-top: 35px;box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
+                    <h4 style="text-align: center;font-weight: bold; color: #878787 !important;margin: 5px auto 30px auto">SIGN IN</h4>
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
                     {
                         @Html.AntiForgeryToken()
@@ -69,7 +75,7 @@
 
                         </div>
                         <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
-
+                        <a href="/account/register" class="btn btn-default btn-flat m-b-30 m-t-30">Register</a>
                     }
                 </div>
             </div>

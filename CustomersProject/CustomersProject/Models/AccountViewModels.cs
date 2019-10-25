@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CustomersProject.Models
@@ -68,6 +69,12 @@ namespace CustomersProject.Models
         [Display(Name = "Name")]
         public string Name { get; set; }
 
+        [Required]
+        public string Department { get; set; }
+
+        [Required]
+        [Display(Name = "State of Deployment")]
+        public string State { get; set; }
 
         [Required]
         [EmailAddress]
@@ -85,6 +92,8 @@ namespace CustomersProject.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public List<String> DepartmentList { get; set; }
     }
 
     public class ResetPasswordViewModel

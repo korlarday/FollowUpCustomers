@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -30,7 +31,7 @@
 </head>
 <body>
     <!-- Left Panel -->
-
+    
     @Html.Partial("LeftPanelPartial")
     <!-- Left Panel -->
     <!-- Right Panel -->
@@ -57,10 +58,20 @@
 
     <script>
         $(document).ready(function () {
+            var $userState = $("#userState").text();
+            var $userDept = $("#userDept").text();
+
+            var $isFullAccess = '';
+
+            if ($userDept === 'CS')
+                $isFullAccess = 'yes';
+            else
+                $isFullAccess = 'no';
 
             $.ajax({
                 method: 'GET',
                 url: 'http://127.0.0.1:8000/api/api_customers_new',
+                data: { state: $userState, isFullAccess: $isFullAccess },
                 success: function (data) {
                     $("#notification span").text(data.total).fadeIn(1000);
                     $("#customer-count").text(data.total);

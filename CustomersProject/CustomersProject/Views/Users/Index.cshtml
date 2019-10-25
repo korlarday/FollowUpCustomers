@@ -32,6 +32,9 @@
     </div>
 </div>
 
+<span style="display:none" id="userState"></span>
+<span style="display:none" id="userDept"></span>
+
 <div class="content">
     <div class="animated fadeIn">
         <div class="row">
@@ -47,11 +50,13 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
+                                    <th scope="col">State</th>
+                                    <th scope="col">Department</th>
                                     <th scope="col">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="js-users">
-                                @{ 
+                                @{
                                     var count = 1;
                                     foreach (var user in Model)
                                     {
@@ -60,6 +65,8 @@
                                             <th scope="row">@count</th>
                                             <td>@user.Name</td>
                                             <td>@user.Email</td>
+                                            <td>@user.State</td>
+                                            <td>@user.Department</td>
                                             <td><button class="btn btn-danger btn-sm js-delete" data-toggle="modal" data-target="#confirm">Delete</button></td>
                                         </tr>
                                         ++count;
@@ -123,7 +130,7 @@
                             $(this).remove();
                         });
                         location.reload();
-                        
+
                     },
                     error: function () {
                         toastr.error('Unable to delete user at the moment.');

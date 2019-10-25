@@ -21,44 +21,10 @@ namespace CustomersProject.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            var users = db.Users.Where(x => x.Email != "admin@ieianchorpensions.com").ToList();
+            List<ApplicationUser> users = db.Users.Where(x => x.Email != "admin@ieianchorpensions.com").ToList();
             return View(users);
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(RegisterViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            if (!model.Password.Equals(model.ConfirmPassword))
-            {
-                ModelState.AddModelError("", "Password did not match!");
-                return View(model);
-            }
-
-            var userStore = new UserStore<ApplicationUser>(db);
-            var userManager = new UserManager<ApplicationUser>(userStore);
-
-            
-            var user = new ApplicationUser
-            {
-                UserName = model.Email,
-                Email = model.Email,
-                Name = model.Name
-            };
-            userManager.Create(user, model.Password);
-
-            return RedirectToAction("Index", "Users");
-        }
 
         [HttpPost]
         public string deleteuser(string id)
