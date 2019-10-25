@@ -196,6 +196,10 @@
             $.ajax({
                 method: 'GET',
                 url: 'http://127.0.0.1:8000/api/api_customers',
+                //headers: {
+                //    'Access-Control-Allow-Origin': '*',
+                //    'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJhMmUyNzUzZmJhMTU4MTcyZjMyOTdlNzBiODA1ZDYwZjNhOGZiZjE0MTU4MmU5NDNlZTMyZGFlYTBjMTJkMDhjMjJmMmM1OTViNGM1MTQ2In0.eyJhdWQiOiIyIiwianRpIjoiMmEyZTI3NTNmYmExNTgxNzJmMzI5N2U3MGI4MDVkNjBmM2E4ZmJmMTQxNTgyZTk0M2VlMzJkYWVhMGMxMmQwOGMyMmYyYzU5NWI0YzUxNDYiLCJpYXQiOjE1NzIwMTcyNTIsIm5iZiI6MTU3MjAxNzI1MiwiZXhwIjoxNjAzNjM5NjUyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.VtHM3ebKDGxLUtFaJbh5nwZwHxUJL9EfP-6kZ8gFOC8EYNiivMTnllIvVRWOqJmaQtNKrDeJnpCQYZTjLIit0Bj8D3C1G-AdcWaBNW4byCzgNOB0xVR1XLnkjpFJYrhdNSE7HyvNreoanNW6B2Iou7zAfEM1UNdf7zZ0Ld2_XZWnsxB7rjtW3EOk9542wZP2zJwKGWIx35I_skCMB5aCeCxFxKgnF0EYfSVn0W_PyEH_jr88S2_3HvDuZ_IcCVq_Dom_CNeHBJ6Knqgb-XV5jSXgaXv5D9N2AOreY7DLBaO4DCBxdhn1lgXjIfFAanyMGUbH0xclkr16sB8X1UV2Bwa1WlDd6lA6ismVzVadSvN6-VPXw-t5FbYcFVXp7pnbidQlk96_ye2Opg2ELkxMUiofLi0wuhGjDnk1tjJ6aVpEFMr8ZvCUP7ZiEcB9VnyMU8CzM4Fnp2su0q452dZtlGjcNbAiiuVBsQse1___vnyO_Lx5D4mBMVzAes_7pGSUD36oSQcEEmXJEM6HJNZJO7OA7EsMcbc7IZurbbvuzozCAdAjWd1SkhmaDBb3JN6PEgJzbLrNwZXtJ8hubb5DllMiujzSeOSZXoLDMk_8KCNyruiUkfKa1yvaV5onBzyuMSfRb7uhgRI8_tCb2t-dqFA2_kPjaTubUBxSrELHc8o`
+                //},
                 data: { state: $userState, isFullAccess: $isFullAccess },
                 success: function (data) {
                     console.log($userState + ' ' + $userDept + ' inside ajax');
