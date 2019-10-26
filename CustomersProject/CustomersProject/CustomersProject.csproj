@@ -259,7 +259,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\index.js" />
+    <Content Include="Scripts\app\layout.js" />
+    <Content Include="Scripts\app\new.js" />
+    <Content Include="Scripts\app\pending.js" />
     <Content Include="Scripts\app\registered.js" />
+    <Content Include="Scripts\app\search.js" />
+    <Content Include="Scripts\app\unresolved.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Custom\css\style.css.map" />

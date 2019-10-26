@@ -3,8 +3,6 @@ namespace CustomersProject.Migrations
     using CustomersProject.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
@@ -20,15 +18,17 @@ namespace CustomersProject.Migrations
             var userStore = new UserStore<ApplicationUser>(context);
             var userManager = new UserManager<ApplicationUser>(userStore);
 
-            
 
-            if(!context.Users.Any(x => x.UserName == "admin@ieianchorpensions.com"))
+
+            if (!context.Users.Any(x => x.UserName == "admin@ieianchorpensions.com"))
             {
                 var user = new ApplicationUser
                 {
                     UserName = "admin@ieianchorpensions.com",
                     Email = "admin@ieianchorpensions.com",
-                    Name = "Admin Admin"
+                    Name = "Admin Admin",
+                    Department = "CS",
+                    State = "FCT"
                 };
                 userManager.Create(user, "Abcde1234*");
 
