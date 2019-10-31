@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
 
+    console.log('hello we are here');
+
     function filterText(text) {
         if (text !== null)
             return text.replace('<p>', '').replace('</p>', '');
@@ -16,10 +18,10 @@
 
     $.ajax({
         method: 'GET',
-        url: 'http://127.0.0.1:8000/api/api_customers_new',
+        url: 'https://www.ieianchorpensions.com/api/api_customers_new',
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjlhYjBhM2MyZmQzYzYwZTk5NDM1MGU2MjIxZDkzYzc5YTRhNzRkODVmZTRiZmNlNjVhMGJhNzg1NTJmMjEyOWRhZjJjYmIzZmEzNDNkYzc1In0.eyJhdWQiOiIyIiwianRpIjoiOWFiMGEzYzJmZDNjNjBlOTk0MzUwZTYyMjFkOTNjNzlhNGE3NGQ4NWZlNGJmY2U2NWEwYmE3ODU1MmYyMTI5ZGFmMmNiYjNmYTM0M2RjNzUiLCJpYXQiOjE1NzIxMjYxNTIsIm5iZiI6MTU3MjEyNjE1MiwiZXhwIjoxNjAzNzQ4NTUyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.NZtq_STtzhlZEaGbD2PEcYMLlq5o8g63BvUBxBOfN5CoLpW1LfYREMZpMKNXKodRAznUmIwqeaf33iYKrUlOwScGTNfsUU1sgO_FAuidu-5kI76PNiMnzDCzDwkCIdyO9hAdcJtPyjpzWhyC-awYXdw65D7j1BtivuLv6uBKOB5PWfS2gHPaqDgvJ0UJDdII7qXabXjN8DrARlFPwdxMaWILPdKpw6RZWfW5OuH-fPN5jl2bnivH_zNrZOzvb0qEwR7rbbVZkA-nP_qkwytX6kkbY0wi2Lw4kpprTJbt1b89t5D5Y1mlHCHXtsJdeATtQ7TBvF-6FA-4RcO03_cxik-MVk_cIHb4v2UzSuv3Pln-NS_fNlrMf762_LRRetuE8X3jQiOZddKRWGYW_g6RceFwtbYxM2LmztMUAZA4vSGSDPGA7F-bX_wRapYYwG4lvSpLnoXQdrY9vYtbYcjMLl4ip1Q6QsajHb6dhyYZw-d_M5VR3phE25E7Qa0fCpMUQAEBacQocuslRxSaCwIflsanHxuPweY-zmRy9F0RUPODX0lHuSSod-AZVzHDiur1izkEVxWy_L-lDban4-BXnBfuYvZ6e91LkXfIsflMpZVEwE7SSHbrJiZJbpEXreDQLW0HXEkqs15hX3RZCJtCFzVvh-8IZg8H05gtXUDApzo`
+            'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM3MmUyMWJkZTY3YTg1NGRkY2RlODc5NDI4ZTgwNjBiMzNjZDcwYjA1YzEwOGY1NDY0MDEzOGJlNzA1MTQxZGNmMDdhNDQ5ZmU3MTY0ZTJkIn0.eyJhdWQiOiIyIiwianRpIjoiMzcyZTIxYmRlNjdhODU0ZGRjZGU4Nzk0MjhlODA2MGIzM2NkNzBiMDVjMTA4ZjU0NjQwMTM4YmU3MDUxNDFkY2YwN2E0NDlmZTcxNjRlMmQiLCJpYXQiOjE1NzIyNDgzNzQsIm5iZiI6MTU3MjI0ODM3NSwiZXhwIjoxNjAzODcwNzc0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Ssf-UoLjeADYDbi2s1c9oCtKLC3iNkm_6dv80QaigqFZ-iQ8J2u1jBewuaN48HH0XN6UzCbVPQblU8R4v96H0BaSpf3RBA1ZKxjB5mZierxvrEZfKrZ4dMcqClgvS9r6xnVPbRno35OXQ7Kc3wsyWWCz_WEkbfPcpc6uRfVV5WTvy0k-D3C4e4v7nNiBxmhThBVLsgJrptmeY0nGjArVzLj8-F5S-2RNl7Uws1xRbZlMH4zGPAIkxxTjPDZGxnDn0NyM6Xq2CzPel4_XhHU1PQ4t21mUqMybgMS75mJ9EpEFnmRqHs8o-_NXgym5163bANSHjJLBQf6QVh-pEzN5BJ6WEdd8MSkHcgcZzK7p85vZ0tlTeVcxd3VzObXmvY5qW5RK04gWkhqLXtMWGt5GJI0BMKytxy_zdUEMHFMO1Be_gg_b4bIni1saAlgz5jOLDWYPLMXGVNcbw6QOWxxWsh8UwjUoqpFURGFDzhBqcmUPf7_XJd19FB7gSHzfqdazNqFbIX45r8AGgMZgk5bmXVSJeCwLs8U9wZM3cWYvdh5IZN5ReUnKJF1sM5Z-4gkGmM-2G3zsND9YplBz2B9OyNeCe1r5p2-nwFdET96TtnOLw0WqN6B3b0ovaGiEjIKpByq-L5rBtwEzSYxPOM800vX8ji4N9Z35f5GC1oVmzOA`
         },
         data: { state: $userState, isFullAccess: $isFullAccess },
         success: function (data) {
@@ -116,13 +118,13 @@
         $(".clone-tr:not(':first')").remove();
 
         var $pageUrl = $this.find('button').attr('data-link');
-        var $url = "http://127.0.0.1:8000/api/api_customers_new" + $pageUrl;
+        var $url = "https://www.ieianchorpensions.com/api/api_customers_new" + $pageUrl;
         $.ajax({
             method: 'GET',
             url: $url,
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
-                'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjlhYjBhM2MyZmQzYzYwZTk5NDM1MGU2MjIxZDkzYzc5YTRhNzRkODVmZTRiZmNlNjVhMGJhNzg1NTJmMjEyOWRhZjJjYmIzZmEzNDNkYzc1In0.eyJhdWQiOiIyIiwianRpIjoiOWFiMGEzYzJmZDNjNjBlOTk0MzUwZTYyMjFkOTNjNzlhNGE3NGQ4NWZlNGJmY2U2NWEwYmE3ODU1MmYyMTI5ZGFmMmNiYjNmYTM0M2RjNzUiLCJpYXQiOjE1NzIxMjYxNTIsIm5iZiI6MTU3MjEyNjE1MiwiZXhwIjoxNjAzNzQ4NTUyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.NZtq_STtzhlZEaGbD2PEcYMLlq5o8g63BvUBxBOfN5CoLpW1LfYREMZpMKNXKodRAznUmIwqeaf33iYKrUlOwScGTNfsUU1sgO_FAuidu-5kI76PNiMnzDCzDwkCIdyO9hAdcJtPyjpzWhyC-awYXdw65D7j1BtivuLv6uBKOB5PWfS2gHPaqDgvJ0UJDdII7qXabXjN8DrARlFPwdxMaWILPdKpw6RZWfW5OuH-fPN5jl2bnivH_zNrZOzvb0qEwR7rbbVZkA-nP_qkwytX6kkbY0wi2Lw4kpprTJbt1b89t5D5Y1mlHCHXtsJdeATtQ7TBvF-6FA-4RcO03_cxik-MVk_cIHb4v2UzSuv3Pln-NS_fNlrMf762_LRRetuE8X3jQiOZddKRWGYW_g6RceFwtbYxM2LmztMUAZA4vSGSDPGA7F-bX_wRapYYwG4lvSpLnoXQdrY9vYtbYcjMLl4ip1Q6QsajHb6dhyYZw-d_M5VR3phE25E7Qa0fCpMUQAEBacQocuslRxSaCwIflsanHxuPweY-zmRy9F0RUPODX0lHuSSod-AZVzHDiur1izkEVxWy_L-lDban4-BXnBfuYvZ6e91LkXfIsflMpZVEwE7SSHbrJiZJbpEXreDQLW0HXEkqs15hX3RZCJtCFzVvh-8IZg8H05gtXUDApzo`
+                'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM3MmUyMWJkZTY3YTg1NGRkY2RlODc5NDI4ZTgwNjBiMzNjZDcwYjA1YzEwOGY1NDY0MDEzOGJlNzA1MTQxZGNmMDdhNDQ5ZmU3MTY0ZTJkIn0.eyJhdWQiOiIyIiwianRpIjoiMzcyZTIxYmRlNjdhODU0ZGRjZGU4Nzk0MjhlODA2MGIzM2NkNzBiMDVjMTA4ZjU0NjQwMTM4YmU3MDUxNDFkY2YwN2E0NDlmZTcxNjRlMmQiLCJpYXQiOjE1NzIyNDgzNzQsIm5iZiI6MTU3MjI0ODM3NSwiZXhwIjoxNjAzODcwNzc0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Ssf-UoLjeADYDbi2s1c9oCtKLC3iNkm_6dv80QaigqFZ-iQ8J2u1jBewuaN48HH0XN6UzCbVPQblU8R4v96H0BaSpf3RBA1ZKxjB5mZierxvrEZfKrZ4dMcqClgvS9r6xnVPbRno35OXQ7Kc3wsyWWCz_WEkbfPcpc6uRfVV5WTvy0k-D3C4e4v7nNiBxmhThBVLsgJrptmeY0nGjArVzLj8-F5S-2RNl7Uws1xRbZlMH4zGPAIkxxTjPDZGxnDn0NyM6Xq2CzPel4_XhHU1PQ4t21mUqMybgMS75mJ9EpEFnmRqHs8o-_NXgym5163bANSHjJLBQf6QVh-pEzN5BJ6WEdd8MSkHcgcZzK7p85vZ0tlTeVcxd3VzObXmvY5qW5RK04gWkhqLXtMWGt5GJI0BMKytxy_zdUEMHFMO1Be_gg_b4bIni1saAlgz5jOLDWYPLMXGVNcbw6QOWxxWsh8UwjUoqpFURGFDzhBqcmUPf7_XJd19FB7gSHzfqdazNqFbIX45r8AGgMZgk5bmXVSJeCwLs8U9wZM3cWYvdh5IZN5ReUnKJF1sM5Z-4gkGmM-2G3zsND9YplBz2B9OyNeCe1r5p2-nwFdET96TtnOLw0WqN6B3b0ovaGiEjIKpByq-L5rBtwEzSYxPOM800vX8ji4N9Z35f5GC1oVmzOA`
             },
             data: { state: $userState, isFullAccess: $isFullAccess },
             success: function (data) {
@@ -207,9 +209,14 @@
 
         // fetch the image url
         $.ajax({
-            url: 'http://127.0.0.1:8000/api/api_customers_getimage/' + $id,
+            url: 'https://www.ieianchorpensions.com/api/api_customers_getimage/' + $id,
             method: 'GET',
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM3MmUyMWJkZTY3YTg1NGRkY2RlODc5NDI4ZTgwNjBiMzNjZDcwYjA1YzEwOGY1NDY0MDEzOGJlNzA1MTQxZGNmMDdhNDQ5ZmU3MTY0ZTJkIn0.eyJhdWQiOiIyIiwianRpIjoiMzcyZTIxYmRlNjdhODU0ZGRjZGU4Nzk0MjhlODA2MGIzM2NkNzBiMDVjMTA4ZjU0NjQwMTM4YmU3MDUxNDFkY2YwN2E0NDlmZTcxNjRlMmQiLCJpYXQiOjE1NzIyNDgzNzQsIm5iZiI6MTU3MjI0ODM3NSwiZXhwIjoxNjAzODcwNzc0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Ssf-UoLjeADYDbi2s1c9oCtKLC3iNkm_6dv80QaigqFZ-iQ8J2u1jBewuaN48HH0XN6UzCbVPQblU8R4v96H0BaSpf3RBA1ZKxjB5mZierxvrEZfKrZ4dMcqClgvS9r6xnVPbRno35OXQ7Kc3wsyWWCz_WEkbfPcpc6uRfVV5WTvy0k-D3C4e4v7nNiBxmhThBVLsgJrptmeY0nGjArVzLj8-F5S-2RNl7Uws1xRbZlMH4zGPAIkxxTjPDZGxnDn0NyM6Xq2CzPel4_XhHU1PQ4t21mUqMybgMS75mJ9EpEFnmRqHs8o-_NXgym5163bANSHjJLBQf6QVh-pEzN5BJ6WEdd8MSkHcgcZzK7p85vZ0tlTeVcxd3VzObXmvY5qW5RK04gWkhqLXtMWGt5GJI0BMKytxy_zdUEMHFMO1Be_gg_b4bIni1saAlgz5jOLDWYPLMXGVNcbw6QOWxxWsh8UwjUoqpFURGFDzhBqcmUPf7_XJd19FB7gSHzfqdazNqFbIX45r8AGgMZgk5bmXVSJeCwLs8U9wZM3cWYvdh5IZN5ReUnKJF1sM5Z-4gkGmM-2G3zsND9YplBz2B9OyNeCe1r5p2-nwFdET96TtnOLw0WqN6B3b0ovaGiEjIKpByq-L5rBtwEzSYxPOM800vX8ji4N9Z35f5GC1oVmzOA`
+            },
             success: function (data) {
+                console.log('data ' + data)
                 if (data.length === 0) {
                     $("#defaultImage").show();
                     $("#customerImage").hide();
@@ -242,11 +249,12 @@
         $("#openModal").click();
     });
 
+    // When you click on save
     $("#js-save").on("click", function (e) {
         var $id = $("#js-id").text();
         var $selectedValue = $('#select').find(":selected").val();
         var $statusCode = parseInt($selectedValue);
-        var $url = 'http://127.0.0.1:8000/api/api_customers/' + $id;
+        var $url = 'https://www.ieianchorpensions.com/api/api_customers/' + $id;
 
 
         $.ajax({
@@ -254,7 +262,7 @@
             method: 'POST',
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
-                'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjlhYjBhM2MyZmQzYzYwZTk5NDM1MGU2MjIxZDkzYzc5YTRhNzRkODVmZTRiZmNlNjVhMGJhNzg1NTJmMjEyOWRhZjJjYmIzZmEzNDNkYzc1In0.eyJhdWQiOiIyIiwianRpIjoiOWFiMGEzYzJmZDNjNjBlOTk0MzUwZTYyMjFkOTNjNzlhNGE3NGQ4NWZlNGJmY2U2NWEwYmE3ODU1MmYyMTI5ZGFmMmNiYjNmYTM0M2RjNzUiLCJpYXQiOjE1NzIxMjYxNTIsIm5iZiI6MTU3MjEyNjE1MiwiZXhwIjoxNjAzNzQ4NTUyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.NZtq_STtzhlZEaGbD2PEcYMLlq5o8g63BvUBxBOfN5CoLpW1LfYREMZpMKNXKodRAznUmIwqeaf33iYKrUlOwScGTNfsUU1sgO_FAuidu-5kI76PNiMnzDCzDwkCIdyO9hAdcJtPyjpzWhyC-awYXdw65D7j1BtivuLv6uBKOB5PWfS2gHPaqDgvJ0UJDdII7qXabXjN8DrARlFPwdxMaWILPdKpw6RZWfW5OuH-fPN5jl2bnivH_zNrZOzvb0qEwR7rbbVZkA-nP_qkwytX6kkbY0wi2Lw4kpprTJbt1b89t5D5Y1mlHCHXtsJdeATtQ7TBvF-6FA-4RcO03_cxik-MVk_cIHb4v2UzSuv3Pln-NS_fNlrMf762_LRRetuE8X3jQiOZddKRWGYW_g6RceFwtbYxM2LmztMUAZA4vSGSDPGA7F-bX_wRapYYwG4lvSpLnoXQdrY9vYtbYcjMLl4ip1Q6QsajHb6dhyYZw-d_M5VR3phE25E7Qa0fCpMUQAEBacQocuslRxSaCwIflsanHxuPweY-zmRy9F0RUPODX0lHuSSod-AZVzHDiur1izkEVxWy_L-lDban4-BXnBfuYvZ6e91LkXfIsflMpZVEwE7SSHbrJiZJbpEXreDQLW0HXEkqs15hX3RZCJtCFzVvh-8IZg8H05gtXUDApzo`
+                'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjM3MmUyMWJkZTY3YTg1NGRkY2RlODc5NDI4ZTgwNjBiMzNjZDcwYjA1YzEwOGY1NDY0MDEzOGJlNzA1MTQxZGNmMDdhNDQ5ZmU3MTY0ZTJkIn0.eyJhdWQiOiIyIiwianRpIjoiMzcyZTIxYmRlNjdhODU0ZGRjZGU4Nzk0MjhlODA2MGIzM2NkNzBiMDVjMTA4ZjU0NjQwMTM4YmU3MDUxNDFkY2YwN2E0NDlmZTcxNjRlMmQiLCJpYXQiOjE1NzIyNDgzNzQsIm5iZiI6MTU3MjI0ODM3NSwiZXhwIjoxNjAzODcwNzc0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Ssf-UoLjeADYDbi2s1c9oCtKLC3iNkm_6dv80QaigqFZ-iQ8J2u1jBewuaN48HH0XN6UzCbVPQblU8R4v96H0BaSpf3RBA1ZKxjB5mZierxvrEZfKrZ4dMcqClgvS9r6xnVPbRno35OXQ7Kc3wsyWWCz_WEkbfPcpc6uRfVV5WTvy0k-D3C4e4v7nNiBxmhThBVLsgJrptmeY0nGjArVzLj8-F5S-2RNl7Uws1xRbZlMH4zGPAIkxxTjPDZGxnDn0NyM6Xq2CzPel4_XhHU1PQ4t21mUqMybgMS75mJ9EpEFnmRqHs8o-_NXgym5163bANSHjJLBQf6QVh-pEzN5BJ6WEdd8MSkHcgcZzK7p85vZ0tlTeVcxd3VzObXmvY5qW5RK04gWkhqLXtMWGt5GJI0BMKytxy_zdUEMHFMO1Be_gg_b4bIni1saAlgz5jOLDWYPLMXGVNcbw6QOWxxWsh8UwjUoqpFURGFDzhBqcmUPf7_XJd19FB7gSHzfqdazNqFbIX45r8AGgMZgk5bmXVSJeCwLs8U9wZM3cWYvdh5IZN5ReUnKJF1sM5Z-4gkGmM-2G3zsND9YplBz2B9OyNeCe1r5p2-nwFdET96TtnOLw0WqN6B3b0ovaGiEjIKpByq-L5rBtwEzSYxPOM800vX8ji4N9Z35f5GC1oVmzOA`
             },
             data: { status_code: $statusCode },
             success: function () {
