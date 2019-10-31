@@ -219,7 +219,7 @@
                     $("#defaultImage").show();
                     $("#customerImage").hide();
                 } else {
-                    var imageSrc = 'http://127.0.0.1:8000' + data;
+                    var imageSrc = 'https://www.ieianchorpensions.com' + data;
                     $("#customerImage").attr('src', imageSrc);
                     $("#defaultImage").hide();
                     $("#customerImage").show();
