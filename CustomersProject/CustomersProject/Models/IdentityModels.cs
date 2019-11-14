@@ -23,6 +23,7 @@ namespace CustomersProject.Models
     
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -32,6 +33,5 @@ namespace CustomersProject.Models
         {
             return new ApplicationDbContext();
         }
-
     }
 }

@@ -121,7 +121,7 @@
                 var userId = $this.attr("data-userId");
 
                 $.ajax({
-                    url: "/Users/deleteuser",
+                    url: "/customers/Users/deleteuser",
                     method: "POST",
                     data: { id: userId },
                     success: function () {

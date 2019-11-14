@@ -5,21 +5,21 @@
             <ul class="nav navbar-nav">
                 <li class="menu-title">Menus</li><!-- /.menu-title -->
                 <li>
-                    <a href="/home"> <i class="menu-icon ti-user"></i>Customers </a>
+                    <a href="@Url.Content("~/Home")"> <i class="menu-icon ti-user"></i>Customers </a>
                 </li>
                 <li class="menu-item-has-children dropdown show">
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="menu-icon fa fa-th-large"></i>Categories</a>
                     <ul class="sub-menu children dropdown-menu show">
-                        <li><i class="menu-icon ti-announcement"></i><a href="/Categories/new">New Customers</a></li>
-                        <li><i class="menu-icon ti-hand-stop"></i><a href="/Categories/pending">Pending</a></li>
-                        <li><i class="menu-icon ti-check"></i><a href="/Categories/registered">Fully Registered</a></li>
-                        <li><i class="menu-icon ti-close"></i><a href="/Categories/unresolved">Unresolved</a></li>
+                        <li><i class="menu-icon ti-announcement"></i><a href="@Url.Content("~/Categories/new")">New Customers</a></li>
+                        <li><i class="menu-icon ti-hand-stop"></i><a href="@Url.Content("~/Categories/Pending")">Pending</a></li>
+                        <li><i class="menu-icon ti-check"></i><a href="@Url.Content("~/Categories/Registered")">Fully Registered</a></li>
+                        <li><i class="menu-icon ti-close"></i><a href="@Url.Content("~/Categories/Unresolved")">Unresolved</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="/home/search"> <i class="menu-icon ti-search"></i>Search </a>
+                    <a href="@Url.Content("~/Home/Search")"> <i class="menu-icon ti-search"></i>Search </a>
                 </li>
 
                 @if (User.IsInRole("CanManageUsers"))
@@ -27,13 +27,13 @@
                     <li class="menu-title">User Management</li><!-- /.menu-title -->
 
                     <li>
-                        <a href="/Users"> <i class="menu-icon ti-user"></i>Users </a>
+                        <a href="@Url.Content("~/Users")"> <i class="menu-icon ti-user"></i>Users </a>
                     </li>
                 }
 
                 <li class="menu-title">Account</li><!-- /.menu-title -->
                 <li>
-                    <a href="/account/changepassword"> <i class="menu-icon ti-settings"></i>Change Password </a>
+                    <a href="@Url.Content("~/Account/changepassword")"> <i class="menu-icon ti-settings"></i>Change Password </a>
                 </li>
 
                 <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="menu-icon ti-share-alt"></i>Logout</a></li>

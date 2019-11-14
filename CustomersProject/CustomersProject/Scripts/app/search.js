@@ -114,7 +114,8 @@
                 }
             },
             error: function () {
-                alert("Error loading data");
+                alert("Error loading data, please check your internet connection.");
+                location.reload();
             }
         });
     });
@@ -205,7 +206,8 @@
                 $('#table').fadeIn(1000);
             },
             error: function () {
-                alert("Error loading data");
+                alert("Error loading data, please check your internet connection.");
+                location.reload();
             }
         });
     })
@@ -239,7 +241,7 @@
                     $("#defaultImage").show();
                     $("#customerImage").hide();
                 } else {
-                    var imageSrc = 'https://www.ieianchorpensions.com' + data;
+                    var imageSrc = 'https://www.ieianchorpensions.com/IEIWEBNOV2019/public' + data;
                     $("#customerImage").attr('src', imageSrc);
                     $("#defaultImage").hide();
                     $("#customerImage").show();

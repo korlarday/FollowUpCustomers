@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,6 +194,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\StateData.cs" />
+    <Compile Include="Models\Survey.cs" />
     <Compile Include="Models\UserStateVM.cs" />
     <Compile Include="Models\ViewModel\ChangePasswordVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -276,6 +278,8 @@
     <Content Include="Content\Custom\scss\style.scss" />
     <Content Include="images\logo.psd" />
     <Content Include="Content\States.json" />
+    <None Include="Properties\PublishProfiles\Customers.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

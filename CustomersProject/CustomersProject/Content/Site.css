@@ -16,3 +16,11 @@
 .modal-body .table th, .modal-body .table td{
     border-top: 0;
 }
+
+
+/* Modal border settings */
+.add-border {
+    border: 3px solid #f2f2f2;
+    padding: 10px;
+    border-radius: 8px;
+}
