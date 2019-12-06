@@ -37,7 +37,7 @@
                 $cloneTr.addClass('js-' + $data[i].id);
 
                 $dob = moment($data[i].dob, 'YYYY-MM-DD HH:mm:ss').format('MMMM Do YYYY');
-                $creationTime = moment($data[i].created_at, 'YYYY-MM-DD HH:mm:ss').format('lll');
+                $creationTime = moment($data[i].created_at, 'YYYY-MM-DD HH:mm:ss').format('ll');
 
                 $cloneTr.find('.serial').text($from++ + '.');
                 $cloneTr.find('.js-name').text(filterText($data[i].fname) + ' ' + filterText($data[i].lname) + ' ' + filterText($data[i].oname));
@@ -141,7 +141,7 @@
                     $cloneTr.addClass('js-' + $data[i].id);
 
                     $dob = moment($data[i].dob, 'YYYY-MM-DD HH:mm:ss').format('MMMM Do YYYY');
-                    $creationTime = moment($data[i].created_at, 'YYYY-MM-DD HH:mm:ss').format('lll');
+                    $creationTime = moment($data[i].created_at, 'YYYY-MM-DD HH:mm:ss').format('ll');
 
                     $cloneTr.find('.serial').text($from++ + '.');
                     $cloneTr.find('.js-name').text(filterText($data[i].fname) + ' ' + filterText($data[i].lname) + ' ' + filterText($data[i].oname));
